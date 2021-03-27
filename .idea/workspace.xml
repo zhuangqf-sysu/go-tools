@@ -19,11 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f144d801-d275-4eab-9526-537523657fb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/list/skip_list.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/list/skip_list_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+    <list default="true" id="f144d801-d275-4eab-9526-537523657fb5" name="Default Changelist" comment="skip list">
+      <change afterPath="$PROJECT_DIR$/list/skip_list_bench_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/list/skip_list.go" beforeDir="false" afterPath="$PROJECT_DIR$/list/skip_list.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,33 +60,76 @@
       <recent name="C:\Users\zhuangqinfa\go\src\go-tools\list" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestNewWindowWithCount in tools/window">
-    <configuration name="TestNewTimeWindow in tools/window" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.go test tools/list">
+    <configuration name="BenchmarkSkipList_Insert in tools/list (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="tools" />
-      <working_directory value="$PROJECT_DIR$/window" />
-      <framework value="gotest" />
+      <working_directory value="$PROJECT_DIR$/list" />
+      <framework value="gobench" />
       <kind value="PACKAGE" />
-      <package value="tools/window" />
+      <package value="tools/list" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestNewTimeWindow\E$" />
+      <pattern value="^\QBenchmarkSkipList_Insert\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestNewWindowWithCount in tools/window" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="BenchmarkSkipList_Insert in tools/list" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="tools" />
-      <working_directory value="$PROJECT_DIR$/window" />
-      <framework value="gotest" />
+      <working_directory value="$PROJECT_DIR$/list" />
+      <parameters value="-test.cpuprofile=cpu.prof" />
+      <framework value="gobench" />
       <kind value="PACKAGE" />
-      <package value="tools/window" />
+      <package value="tools/list" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestNewWindowWithCount\E$" />
+      <pattern value="^\QBenchmarkSkipList_Insert\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="BenchmarkSkipList_Insert2 in tools/list" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="tools" />
+      <working_directory value="$PROJECT_DIR$/list" />
+      <framework value="gobench" />
+      <kind value="PACKAGE" />
+      <package value="tools/list" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QBenchmarkSkipList_Insert2\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSkipList_Insert in tools/list" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="tools" />
+      <working_directory value="$PROJECT_DIR$/list" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="tools/list" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestSkipList_Insert\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test tools/list" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="tools" />
+      <working_directory value="$PROJECT_DIR$/list" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="tools/list" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Test.BenchmarkSkipList_Insert in tools/list" />
+      <item itemvalue="Go Test.BenchmarkSkipList_Insert2 in tools/list" />
+      <item itemvalue="Go Test.BenchmarkSkipList_Insert in tools/list (1)" />
+      <item itemvalue="Go Test.TestSkipList_Insert in tools/list" />
+      <item itemvalue="Go Test.go test tools/list" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestNewWindowWithCount in tools/window" />
-        <item itemvalue="Go Test.TestNewTimeWindow in tools/window" />
+        <item itemvalue="Go Test.go test tools/list" />
+        <item itemvalue="Go Test.BenchmarkSkipList_Insert in tools/list" />
+        <item itemvalue="Go Test.TestSkipList_Insert in tools/list" />
+        <item itemvalue="Go Test.BenchmarkSkipList_Insert in tools/list (1)" />
+        <item itemvalue="Go Test.BenchmarkSkipList_Insert2 in tools/list" />
       </list>
     </recent_temporary>
   </component>
@@ -105,6 +147,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="skip list" />
+    <option name="LAST_COMMIT_MESSAGE" value="skip list" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -115,25 +162,33 @@
     </environment>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1323" height="350" key="GridCell.Tab.0.bottom" timestamp="1610551541284">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="350" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1610551541284" />
-    <state width="1323" height="350" key="GridCell.Tab.0.center" timestamp="1610551541283">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="350" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1610551541283" />
-    <state width="1323" height="350" key="GridCell.Tab.0.left" timestamp="1610551541283">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="350" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1610551541283" />
-    <state width="1323" height="350" key="GridCell.Tab.0.right" timestamp="1610551541283">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="350" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1610551541283" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1616832570803">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616834978433">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1616832570803" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1616834978433" />
+    <state width="1493" height="337" key="GridCell.Tab.0.bottom" timestamp="1616858756725">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1323" height="350" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1610551541284" />
+    <state width="1493" height="337" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616858756725" />
+    <state width="1493" height="337" key="GridCell.Tab.0.center" timestamp="1616858756724">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1323" height="350" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1610551541283" />
+    <state width="1493" height="337" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616858756724" />
+    <state width="1493" height="337" key="GridCell.Tab.0.left" timestamp="1616858756724">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1323" height="350" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1610551541283" />
+    <state width="1493" height="337" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616858756724" />
+    <state width="1493" height="337" key="GridCell.Tab.0.right" timestamp="1616858756725">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1323" height="350" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1610551541283" />
+    <state width="1493" height="337" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616858756725" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1616858766529">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1616858766529" />
   </component>
 </project>

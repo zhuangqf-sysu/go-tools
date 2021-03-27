@@ -150,7 +150,12 @@ func (list *SkipList) Find(value Comparable) *SkipNode {
 }
 
 func (list *SkipList) Insert(value Comparable) *SkipNode {
-	l := rand.Intn(list.level)
+	n := rand.Int()
+	l := list.level - 1
+	for n%2 == 0 && l >= 0 {
+		l--
+		n = n >> 1
+	}
 
 	var (
 		up    *SkipNode
