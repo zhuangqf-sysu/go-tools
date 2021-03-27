@@ -60,7 +60,7 @@ func BenchmarkSkipList_Insert(b *testing.B) {
 	}
 }
 
-func BenchmarkSkipList_Insert2(b *testing.B) {
+func BenchmarkList_Insert(b *testing.B) {
 	b.StopTimer()
 	arr := randList(100)
 	b.StartTimer()
@@ -85,7 +85,7 @@ func BenchmarkSkipList_Find(b *testing.B) {
 	}
 }
 
-func BenchmarkSkipList_Find2(b *testing.B) {
+func BenchmarkList_Find(b *testing.B) {
 	b.StopTimer()
 	list := make([]int, 1000, 1000)
 	for i := 0; i < 1000; i++ {
@@ -95,5 +95,71 @@ func BenchmarkSkipList_Find2(b *testing.B) {
 	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		sort.SearchInts(list, arr[i%1000])
+	}
+}
+
+func BenchmarkSkipList_DeleteOnce(b *testing.B) {
+	b.StopTimer()
+	list := NewSkipList(13)
+	for i := 0; i < 100000; i++ {
+		list.Insert(Integer(rand.Int()))
+	}
+	arr := randIntegerList(1000)
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		list.DeleteOnce(arr[i%1000])
+	}
+}
+
+func BenchmarkSkipList_DeleteAll(b *testing.B) {
+	b.StopTimer()
+	list := NewSkipList(13)
+	for i := 0; i < 100000; i++ {
+		list.Insert(Integer(rand.Int()))
+	}
+	arr := randIntegerList(1000)
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		list.DeleteAll(arr[i%1000])
+	}
+}
+
+func BenchmarkMap_DeleteAll(b *testing.B) {
+	b.StopTimer()
+	m := make(map[int]int)
+	for i := 0; i < 100000; i++ {
+		m[rand.Int()]++
+	}
+	arr := randList(1000)
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		delete(m, arr[i%1000])
+	}
+}
+
+func BenchmarkSkipList_Scan(b *testing.B) {
+	b.StopTimer()
+	list := NewSkipList(10)
+	for i := 0; i < 1000; i++ {
+		list.Insert(Integer(rand.Int()))
+	}
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		list.Scan(func(value Comparable) {
+		})
+	}
+}
+
+func BenchmarkMap_Scan(b *testing.B) {
+	b.StopTimer()
+	m := make(map[int]int)
+	for i := 0; i < 1000; i++ {
+		m[rand.Int()]++
+	}
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		for range m {
+
+		}
 	}
 }
