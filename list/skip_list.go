@@ -135,7 +135,6 @@ func (list *SkipList) Find(value Comparable) *SkipNode {
 	l := 0
 	for {
 		next := node.next
-		fmt.Printf("(%d, %v, %v)\n", l, node.value, next.value)
 		// tail || 找到了
 		if next.value == nil || next.value.Compare(value) >= 0 {
 			if node.down == nil {

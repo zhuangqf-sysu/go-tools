@@ -3,6 +3,7 @@ package list
 import (
 	"container/heap"
 	"math/rand"
+	"sort"
 	"testing"
 )
 
@@ -14,14 +15,12 @@ func randList(len int) []int {
 	return ans
 }
 
-func BenchmarkSkipList_Insert(b *testing.B) {
-	b.StopTimer()
-	arr := randList(100)
-	b.StartTimer()
-	list := NewSkipList(20)
-	for i := 0; i < b.N; i++ {
-		list.Insert(Integer(i + arr[i%100]))
+func randIntegerList(len int) []Integer {
+	ans := make([]Integer, len, len)
+	for i := 0; i < len; i++ {
+		ans[i] = Integer(rand.Int())
 	}
+	return ans
 }
 
 type Ints []int
@@ -51,10 +50,50 @@ func (arr Ints) Pop() interface{} {
 	return a
 }
 
+func BenchmarkSkipList_Insert(b *testing.B) {
+	b.StopTimer()
+	arr := randList(100)
+	b.StartTimer()
+	list := NewSkipList(17)
+	for i := 0; i < b.N; i++ {
+		list.Insert(Integer(i + arr[i%100]))
+	}
+}
+
 func BenchmarkSkipList_Insert2(b *testing.B) {
+	b.StopTimer()
+	arr := randList(100)
+	b.StartTimer()
+
 	list := Ints(make([]int, 0))
 	heap.Init(list)
 	for i := 0; i < b.N; i++ {
-		heap.Push(list, rand.Intn(b.N))
+		heap.Push(list, i+arr[i%100])
+	}
+}
+
+func BenchmarkSkipList_Find(b *testing.B) {
+	b.StopTimer()
+	list := NewSkipList(6)
+	for i := 0; i < 100; i++ {
+		list.Insert(Integer(rand.Int()))
+	}
+	arr := randIntegerList(100)
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		list.Find(arr[i%100])
+	}
+}
+
+func BenchmarkSkipList_Find2(b *testing.B) {
+	b.StopTimer()
+	list := make([]int, 1000, 1000)
+	for i := 0; i < 1000; i++ {
+		list = append(list, rand.Int())
+	}
+	arr := randList(1000)
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		sort.SearchInts(list, arr[i%1000])
 	}
 }
